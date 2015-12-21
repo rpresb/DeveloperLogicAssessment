@@ -12,7 +12,7 @@ namespace DeveloperLogicAssessment
     {
         public void Configuration(IAppBuilder app)
         {
-            
+            ConfigureAuth(app);
         }
     }
 }
