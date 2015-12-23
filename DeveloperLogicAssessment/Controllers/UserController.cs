@@ -16,11 +16,16 @@ namespace DeveloperLogicAssessment.Controllers
     {
         const int MAX_SECONDS = 30;
 
-        private UserDAO userDAO;
+        private IUserDAO userDAO;
 
-        private UserController()
+        public UserController()
         {
             userDAO = new UserDAO();
+        }
+
+        public UserController(IUserDAO userDAO)
+        {
+            this.userDAO = userDAO;
         }
 
         // GET api/User
@@ -34,21 +39,21 @@ namespace DeveloperLogicAssessment.Controllers
         {
             if (userDAO.GetUser(user.UserID) != null)
             {
-                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.Conflict, new { message = "User already exists" }));
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.Conflict, new { created = false, message = "User already exists" }));
             }
 
             User createdUser = userDAO.SaveUser(generateNewPassword(user.UserID));
 
             if (createdUser == null)
             {
-                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.InternalServerError));
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.InternalServerError, new { created = false, message = "Something is wrong" }));
             }
 
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, new { created = true });
             return response;
         }
 
-        private User generateNewPassword(string userID)
+        protected User generateNewPassword(string userID)
         {
             User newUser = new User();
             newUser.UserID = userID;

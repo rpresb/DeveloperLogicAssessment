@@ -10,9 +10,26 @@ namespace DeveloperLogicAssessment.Security
 {
     public class PasswordHelper
     {
+        private static string salt;
+
+        public static void setSalt(string salt)
+        {
+            PasswordHelper.salt = salt;
+        }
+
+        private static string getSalt()
+        {
+            if (salt == null)
+            {
+                return ConfigurationManager.AppSettings["salt"];
+            }
+
+            return salt;
+        }
+
         public static string Hash(string value)
         {
-            return Hash(value, ConfigurationManager.AppSettings["salt"]);
+            return Hash(value, getSalt());
         }
 
         public static string Hash(string value, string salt)

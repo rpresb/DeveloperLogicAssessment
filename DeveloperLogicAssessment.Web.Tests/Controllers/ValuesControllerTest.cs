@@ -5,10 +5,10 @@ using System.Net.Http;
 using System.Text;
 using System.Web.Http;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using DeveloperLogicAssessment;
-using DeveloperLogicAssessment.Controllers;
+using DeveloperLogicAssessment.Web;
+using DeveloperLogicAssessment.Web.Controllers;
 
-namespace DeveloperLogicAssessment.Tests.Controllers
+namespace DeveloperLogicAssessment.Web.Tests.Controllers
 {
     [TestClass]
     public class ValuesControllerTest

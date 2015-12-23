@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0-*",
+  "description": "DeveloperLogicAssessment.DAO Class Library",
+  "authors": [ "Rodrigo" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+  "frameworks": {
+    "net45": {
+      "dependencies": {
+        "Siaqodb": "5.0.0.7"
+      }
+    }
+  },
+  "dependencies": {
+    "DeveloperLogicAssessment.Model": "1.0.0-*"
+  }
+}

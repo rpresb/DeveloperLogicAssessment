@@ -1,15 +1,13 @@
 ﻿using DeveloperLogicAssessment.Models;
 using Sqo;
-using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NUnit.Mocks;
+using System;
 
 namespace DeveloperLogicAssessment.DAO
 {
-    public class UserDAO : BaseDAO<User> 
+    public class UserDAO : BaseDAO<User>, IUserDAO
     {
         public User SaveUser(User user)
         {

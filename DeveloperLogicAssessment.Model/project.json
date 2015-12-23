@@ -1,0 +1,12 @@
+﻿{
+  "version": "1.0.0-*",
+  "description": "DeveloperLogicAssessment.Model Class Library",
+  "authors": [ "Rodrigo" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "frameworks": {
+    "net451": { }
+  }
+}
